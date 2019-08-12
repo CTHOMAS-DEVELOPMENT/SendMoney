@@ -12,6 +12,7 @@ npm start
 
 ## About
 You can fork this project and utilize the fault free configuration.
+```
 React (16.3)
 State Management: Redux
 Backend storage: Chrome Firebase
@@ -19,7 +20,7 @@ Visualization: D3
 CSS/SCSS: Utilizes grid
 Webpack
 Babel
-
+```
 ### Notes: 
 Form validation: Illustratrates a standard way to handle validation with React.
 I use as little packages as possible. Eg: No Bootstrap but handle scss with "Grid"
