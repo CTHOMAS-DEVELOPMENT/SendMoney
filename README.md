@@ -9,7 +9,6 @@ Enter the amount of money you want to send.
 npm install
 npm start
 ```
-
 ## About
 You can fork this project and utilize the fault free configuration.
 ```
@@ -22,9 +21,11 @@ Webpack
 Babel
 ```
 ### Notes: 
+```
 Form validation: Illustratrates a standard way to handle validation with React.
-I use as little packages as possible. Eg: No Bootstrap but handle scss with "Grid"
-
+I use as little packages/dependencies as possible. 
+Eg: No Bootstrap but handle scss with "Grid"
+```
 ## Contributing
 Pull requests are welcome.
 Please make sure to update tests as appropriate.
