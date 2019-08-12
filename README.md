@@ -1,24 +1,26 @@
-# react-webpack-starter-kit
+# Send Money (Demo Application)
 
-A simple boilerplate with the basic setup to work with react.
+A fairly simple application to illustrate the collaboration of technology (Send money to your friends!).
 
-It includes webpack for bundling and babel for transpiling your es6 javascript to es5.
-It also has support for sass, file imports and autoprefixing of your compiled css file.
+## Installation
 
-### Usage:
-1. clone this repository or download the zip file.
-2. change directory into the clone folder.
-3. run the following code in your terminal.
-	```javascript
-    yarn
-    ```
-4. Finally run
-	```javascript
-    yarn run dev
-	```
-5. yay! start writing your react code
+To be completed
+
+```
+npm install
+```
+
+## Usage
+
+Enter the amount of money you want to send.
 
 
-If you notice any issue or want to contribute to this repository, just fork and create a PR
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-[let's tweet](https://twitter.com/jude_ojini)
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
