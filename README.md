@@ -34,7 +34,8 @@ Please make sure to update tests as appropriate.
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 ## Play with the application
-[Send Money demo](http://childlike-beginner.surge.sh/) 
+[Send Money demo](http://childlike-beginner.surge.sh/)
+![Send Money Demo](http://childlike-beginner.surge.sh/appshow.png)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
