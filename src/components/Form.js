@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { VALID_EMAIL_REGEX } from "../common/constants";
 import { validatedField } from "../common/Utils";
-class ConnectedForm extends Component {
+export class ConnectedForm extends Component {
   constructor(props) {
     super();
     //Initialise state
@@ -14,9 +14,7 @@ class ConnectedForm extends Component {
       amount:"",
       errors: { email: '', amount: '', name: '' }
     };
-    if (props.id !== undefined) {
-      this.state = this.getValuesForUpdate(props.id, props.articles);
-    }
+
   }
   validationPassed = ( errors ) =>
   {
@@ -104,7 +102,7 @@ class ConnectedForm extends Component {
             <br/>
             {
               this.validationPassed(this.state.errors)?<button type="submit" className="sendBtn">Send
-              </button>:<div className='smallMessages'>Please enter indicated missing values</div>
+              </button>:<div id='message' className='smallMessages'>Please enter indicated missing values</div>
             }
         
         </form>

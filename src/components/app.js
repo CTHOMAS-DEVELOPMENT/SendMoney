@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import List from "./List";
 import Form from "./Form";
 import Pie from "./Pie";
+import Footer from "./Footer";
 import { initializeFbData, insertFbGift } from "../components/crud";
 class App extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class App extends React.Component {
         <Form onSubmit={ (transInfo)=>{ this.callMain(transInfo)}}/>
         <Pie account= {this.props.accounts?this.props.accounts[0]:""} />
         <List gifts={this.state.gifts} />   
+        <Footer />   
       </div>
     );
   }
