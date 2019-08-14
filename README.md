@@ -27,10 +27,11 @@ I use as little packages/dependencies as possible.
 Eg: No Bootstrap but handle scss with "Grid"
 ```
 ## Contributing
+```
 Pull requests are welcome.
 Please make sure to update tests as appropriate.
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
-
+```
 ## Play with the application
 [Send Money demo](http://childlike-beginner.surge.sh/) 
 
