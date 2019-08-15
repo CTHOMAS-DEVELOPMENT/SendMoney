@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { VALID_EMAIL_REGEX } from "../common/constants";
 import { validatedField } from "../common/Utils";
-export class ConnectedForm extends Component {
+class ConnectedForm extends Component {
   constructor(props) {
     super();
     //Initialise state

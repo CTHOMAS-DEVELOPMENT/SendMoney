@@ -6,7 +6,7 @@ class Footer extends React.Component {
     
     return (
       <div className='item wide'>
-           <span>A fairly simple application to illustrate the collaboration of technology</span>
+           <span>A fairly simple application to illustrate the integration of technology</span>
       </div>
     );
   }

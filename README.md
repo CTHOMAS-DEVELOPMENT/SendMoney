@@ -1,6 +1,6 @@
 # Send Money (Demo Application)
 
-A fairly simple application to illustrate the collaboration of technology.
+A fairly simple application to illustrate the integration of technology.
 Enter the amount of money you want to send.
 
 ## Installation and run
@@ -12,7 +12,7 @@ npm start
 ## About
 You can fork this project and utilize the fault free configuration.
 ```
-React (16.3)
+React (16.6.3)
 State Management: Redux
 Backend storage: Chrome Firebase
 Visualization: D3

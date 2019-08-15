@@ -7,5 +7,5 @@ test("Should render Footer correctly..", () => {
   const wrapper = shallow(<Footer />);
   const span=wrapper.find('span');
   const result=span.text();
-  expect(result).toBe('A fairly simple application to illustrate the collaboration of technology');
+  expect(result).toBe('A fairly simple application to illustrate the integration of technology');
 });
