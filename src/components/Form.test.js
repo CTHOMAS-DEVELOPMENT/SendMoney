@@ -36,23 +36,22 @@ describe('>>>FORM --- REACT-REDUX (Mount + wrapping in <Provider>)',()=>{
         dummy = jest.fn() ;
         accounts=[{balance: 350000,initial: 500000,name: "current"},{balance: 50000,name: "savings"}]
         store = mockStore(initialState)
-        wrapper = mount( <Provider store={store}><ConnectedForm /></Provider> )
-        //tree=create(<Provider store={store}><ConnectedForm /></Provider>).toJSON();
-        //console.log("TREE*",JSON.stringify(tree));
+        wrapper = mount( <Provider store={store} accounts={accounts} onSubmit={ dummy }><ConnectedForm /></Provider> )
+        tree=create(<Provider store={store} accounts={accounts} onSubmit={ dummy }><ConnectedForm /></Provider>).toJSON();
+
     })
 
-   //test('+++ contains header - h2', () => {
-       //console.log("wrapper*",wrapper.matchesElement(<input required={true} type="text" id="name" placeholder="Name..." value="" onChange={[Function]} />))
-   //     expect(wrapper.matchesElement(<input required={true} type="text" id="name" placeholder="Name..." value="" onChange={[Function]} />)).toBeTruthy()
-   //});
-   
+ 
+   test('Check Prop were passed', () => {
+      expect(wrapper.props().accounts).toBe(accounts);
+    });
    test("COMPONENT: Form (Structure tests)",()=>{
-    tree=create(<Provider store={store}><ConnectedForm /></Provider>).toJSON();
-    //console.log("tree",JSON.stringify(tree));
-    //console.log("tree.children[0]",JSON.stringify(tree.children[0]));
     expect(tree.type).toBe('div');
     expect(tree.props.className).toBe("item tall");
     expect(tree.children[1].type).toBe('form');
+    expect(tree.children[1].children[2].props.id).toBe('name');
+    expect(tree.children[1].children[5].props.id).toBe('email');
+    expect(tree.children[1].children[8].props.id).toBe('amount');
    });
 
 });
