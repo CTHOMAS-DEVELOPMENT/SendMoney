@@ -12,8 +12,8 @@ npm start
 ## About
 You can fork this project and utilize the fault free configuration.
 ```
-React (16.6.3)
-State Management: Redux
+React (16.8.0)
+State Management: Redux (4.0.1)
 Backend storage: Chrome Firebase
 Visualization: D3
 CSS/SCSS: Utilizes grid
