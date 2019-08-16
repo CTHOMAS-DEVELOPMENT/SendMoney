@@ -1,6 +1,5 @@
 import React from "react";
-import { Provider } from 'react-redux';
-import ConnectedForm from './Form';
+import ConnectedForm, { Form } from './Form';
 import { shallow, configure, mount} from 'enzyme';
 import Adapter from "enzyme-adapter-react-16";
 import configureStore from 'redux-mock-store';
@@ -23,7 +22,7 @@ const initialState = {
     dummy = jest.fn() ;
     accounts=[{balance: 350000,initial: 500000,name: "current"},{balance: 50000,name: "savings"}]
     store = mockStore(initialState)
-    container = shallow(<ConnectedForm store={store}  accounts={accounts} onSubmit={ dummy }/> )  
+    container = shallow(<Form store={store}  accounts={accounts} onSubmit={ dummy }/> )  
   })
   it('+++ render the connected Redux component', () => {
         expect(container.length).toEqual(1);
@@ -31,17 +30,15 @@ const initialState = {
 
 describe('>>>FORM --- REACT-REDUX (Mount + wrapping in <Provider>)',()=>{
     
-
     beforeEach(()=>{        
         dummy = jest.fn() ;
         accounts=[{balance: 350000,initial: 500000,name: "current"},{balance: 50000,name: "savings"}]
         store = mockStore(initialState)
-        wrapper = mount( <Provider store={store} accounts={accounts} onSubmit={ dummy }><ConnectedForm /></Provider> )
-        tree=create(<Provider store={store} accounts={accounts} onSubmit={ dummy }><ConnectedForm /></Provider>).toJSON();
+        wrapper = mount( <Form  store={store} accounts={accounts} onSubmit={ dummy }/> )
+        tree=create(<Form  store={store} accounts={accounts} onSubmit={ dummy }/>).toJSON();
 
     })
 
- 
    test('Check Prop were passed', () => {
       expect(wrapper.props().accounts).toBe(accounts);
     });

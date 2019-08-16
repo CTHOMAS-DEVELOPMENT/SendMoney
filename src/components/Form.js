@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { VALID_EMAIL_REGEX } from "../common/constants";
 import { validatedField } from "../common/Utils";
-class ConnectedForm extends Component {
+export class Form extends Component {
   constructor(props) {
     super();
     //Initialise state
@@ -117,4 +117,4 @@ const mapStateToProps = state => {
 //Connect the form with the store and enable dispatching
 export default connect(
   mapStateToProps
-)(ConnectedForm);
+)(Form);
