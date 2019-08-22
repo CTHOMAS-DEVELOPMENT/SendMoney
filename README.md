@@ -35,7 +35,6 @@ Please make sure to update tests as appropriate.
 
 ## Play with the application
 [Send Money demo](http://connectedtechnology.surge.sh/)
-![Send Money Demo](http://connectedtechnology.surge.sh/appshow.png)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
