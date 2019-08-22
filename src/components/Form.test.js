@@ -1,5 +1,5 @@
 import React from "react";
-import ConnectedForm, { Form } from './Form';
+import { Form } from './Form';
 import { shallow, configure, mount} from 'enzyme';
 import Adapter from "enzyme-adapter-react-16";
 import configureStore from 'redux-mock-store';
@@ -44,7 +44,7 @@ describe('>>>FORM --- REACT-REDUX (Mount + wrapping in <Provider>)',()=>{
     });
    test("COMPONENT: Form (Structure tests)",()=>{
     expect(tree.type).toBe('div');
-    expect(tree.props.className).toBe("item tall");
+    expect(tree.props.className).toBe("item");
     expect(tree.children[1].type).toBe('form');
     expect(tree.children[1].children[2].props.id).toBe('name');
     expect(tree.children[1].children[5].props.id).toBe('email');

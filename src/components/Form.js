@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { VALID_EMAIL_REGEX } from "../common/constants";
 import { validatedField } from "../common/Utils";
+import { insertFbGift } from "../components/crud";
 export class Form extends Component {
   constructor(props) {
     super();
@@ -55,13 +56,14 @@ export class Form extends Component {
       this.setState({ amount:"" });
       this.setState({ email:"" });
       this.setState({ name:"" });
-      this.props.onSubmit(this.state);
+
+      insertFbGift(this.state, this.props.accounts[0].balance);
     }
     
   };
   render() {
     return (
-      <div className='item tall'>
+      <div className='item'>
         {this.state && this.state.errorMessage && (
           <p>{this.state.errorMessage}</p>
         )}

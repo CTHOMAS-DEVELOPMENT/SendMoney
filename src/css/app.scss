@@ -28,15 +28,7 @@ body{
 .detaildiv {
   grid-column: span 2; 
 }
-//Application specific for layout 
-.tall {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-}
-.wide {
-  grid-column: 1 / 3;
-  grid-row: 3 / 4;
-}
+
 
 ///////////////
 //FORM LAYOUT//
@@ -78,6 +70,31 @@ input, textarea{
     background:rgb(172, 177, 238);
   }
 }
+
+//
+//choicebuttons menu
+ul.choicebuttons {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  cursor:pointer;
+}
+
+ul.choicebuttons li {display: inline;}
+
+ul.choicebuttons li a {
+  
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: thin;
+}
+ul.choicebuttons li a.active{ background-color:black;  color: white; }
+ul.choicebuttons li a.dormant{ background-color:white; color: black; }
+ul.choicebuttons li a:hover:not(.active) {background-color: #ddd;}
+
 
 /////////////////
 //Miscellaneous//

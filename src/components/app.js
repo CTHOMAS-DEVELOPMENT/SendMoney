@@ -5,7 +5,8 @@ import List from "./List";
 import Form from "./Form";
 import Pie from "./Pie";
 import Footer from "./Footer";
-import { initializeFbData, insertFbGift } from "../components/crud";
+import { getFbData } from "../components/crud";
+
 class App extends React.Component {
   constructor(props) {
     super();
@@ -14,19 +15,17 @@ class App extends React.Component {
       gifts: [],
       accounts: []
     };
-    
   }
-  callMain=(val)=>{
-    insertFbGift(val, this.props.accounts[0].balance);
-  }
+
   componentDidMount(){
-    initializeFbData();
-  }   
+    getFbData();
+  }
+    
   render() {
     
     return (
       <div className='grid-container'>
-        <Form onSubmit={ (transInfo)=>{ this.callMain(transInfo)}}/>
+        <Form />
         <Pie account= {this.props.accounts?this.props.accounts[0]:""} />
         <List gifts={this.state.gifts} />   
         <Footer />   

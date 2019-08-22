@@ -1,22 +1,13 @@
-/*Basic data maintainence
-It maintains 1 entity (articles)
-A full system would have more than 1 file like this and they would all be smaller.
-*/
 import fb from "../data/dbConnect";
-import {addDb} from "../actions/actions"
-import store from "../store"
-
+import {addDb} from "../actions/actions";
+import store from "../store";
 
 ////////////
 //INITIALIZE
 ////////////
-export const initializeFbData = () => {
-  let data={};
-  fb.on('value', snapshot => {
-    const data = snapshot.val();
-    store.dispatch(addDb(data));
-  return data;
-  })
+export const getFbData = async () => {
+  const snapshot = await fb.once('value');
+  store.dispatch(addDb(snapshot.val()));
 }
 /////
 //ADD
