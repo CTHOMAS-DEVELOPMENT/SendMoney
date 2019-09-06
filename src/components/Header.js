@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {VIEWS} from "../common/constants"
 class Header extends Component {
   constructor(props) {
     super();
@@ -8,7 +8,7 @@ class Header extends Component {
       selected:"Full View"
     };
   } 
-  menuItems=["Full View","Form Only","Transactions"];
+  menuItems=VIEWS;
   setCurrent=(val)=>{
     this.setState({selected:val});
     this.props.menuclick(val);

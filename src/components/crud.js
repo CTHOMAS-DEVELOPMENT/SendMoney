@@ -17,10 +17,13 @@ export const insertFbGift= (values, balance) => {
 
   fb.child('gifts')
   .push({name,email,amount}, response => response)
-  .then(data => { 
+  .then(() => { 
       fb.child(`accounts/0`).update({"balance":balance-amount}, response => response);
   })
-  .then(data => { console.log("Data transactions complete"); return true;});
+  .then(() => { 
+    console.log("Data transactions complete"); 
+    return true
+  })
 }
 
 ////////

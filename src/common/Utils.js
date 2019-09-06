@@ -6,7 +6,6 @@ export const validatedField = (errors,fieldValue) => {
     {
         Object.values(errors).forEach(
             // if we have an error string set invalid to false
-            
             (val) => {
                 //Test if field has a value to be validated and there is no error message
                 if(val.length > 0 && fieldValue){ 
@@ -18,4 +17,10 @@ export const validatedField = (errors,fieldValue) => {
 
     return invalid;
   }
+  export const formatTextToNumber=(textNumber)=>
+  {
+    return textNumber.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
+  }
+
+
 

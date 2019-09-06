@@ -1,44 +1,56 @@
 import React from "react";
 import { connect } from "react-redux";
-export const ConnectedList = props => {
-  let gifts = [];
-  //Get the gifts derived from the 'Main' component
-  if (props.gifts !== undefined) {
-    gifts = props.gifts;
+import Pagination from "../common/Pagination"
+import { formatTextToNumber } from "../common/Utils"
+class ConnectedList extends React.Component {
+  state = { gifts: [], pageOfItems:[] };
+  componentDidMount()
+  {
+    this.setState({gifts:this.props.gifts})
   }
-  const formatTextToNumber=(textNumber)=>
-{
-  return textNumber.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
-}
-  const block={ display:"inlineBlock" }
-  return (
-    <div className='item'>
-      {gifts.length === 0 ? (
-        <h2>No Transactions</h2>
-      ) : (
-        <div >
-          <h2>Transactions</h2>
-          <div>
-            {gifts.map((gift,id) => {
-              //console.log("gift",gift)
-              return (
-                <div key={id}>
-                  <div style={block}>{gift[1].name}</div>
-                  <div style={block}>
-                    {gift[1].email} <b>&pound;{formatTextToNumber(gift[1].amount)}</b> 
-                  </div>
-                </div>
-              );
-            })}
+  componentDidUpdate(previousProps) {
+    if (previousProps !== this.props) {
+      this.setState({gifts:this.props.gifts})
+    }
+  }
+  onChangePage=(pageOfItems)=>{
+    if(pageOfItems!==this.state.pageOfItems)
+    {
+      this.setState({pageOfItems:pageOfItems})
+    }
+  }
+  render()
+  {
+    return (
+      <div className='item'>
+        {this.state.gifts=== undefined ? (
+          <h2>Loading...</h2>
+        ) : (
+          <div className='grid-container'>
+            <div className='item detaildiv'>
+            <Pagination items={this.props.gifts} pageSize={6} onChangePage={this.onChangePage} />
+            </div>
+            <div className='item detaildiv'>
+              {
+                this.state.pageOfItems.map((gift,id) => {
+                  return (
+                    <div key={id}>
+                      <div>{gift.name}</div>
+                      <div>
+                        {gift.email} <b>&pound;{formatTextToNumber(gift.amount)}</b> 
+                      </div>
+                    </div>
+                  );
+                })
+              }
+            </div>
           </div>
-        </div>
-      )}
-     
-    </div>
-  );
+          )}
+      </div>
+    )
+  }
 };
 const mapStateToProps = state => {
     return { gifts: state.gifts };
-  };
-
+};
 export default connect(mapStateToProps)(ConnectedList);

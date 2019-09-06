@@ -4,19 +4,15 @@ import { VALID_EMAIL_REGEX } from "../common/constants";
 import { validatedField } from "../common/Utils";
 import { insertFbGift } from "../components/crud";
 export class Form extends Component {
-  constructor(props) {
-    super();
-    //Initialise state
-    this.state = {
+  state = {
       gifts:[],
       errorMessage: "",
       name:"",
       email:"",
       amount:"",
       errors: { email: '', amount: '', name: '' }
-    };
+  };
 
-  }
   validationPassed = ( errors ) =>
   {
     return (validatedField(errors, this.state.name) &&
@@ -26,40 +22,34 @@ export class Form extends Component {
   handleAmountChange = e => {
     //Only show valid amounts
     const amount = e.target.value;
-    this.setState({ amount });
     //Assign validation errors
     let errors = this.state.errors;
-    errors.amount=amount > this.props.accounts[0].balance?"Insufficient funds!":"";
-    this.setState({ errors });
+    errors.amount=amount > this.props.accounts[0].balance?"Insufficient funds!":""
+    this.setState({ errors, amount })
   };
   handleNameChange = event => {
     let name=event.target.value;
-    this.setState({ name });
     //Assign validation errors
     let errors = this.state.errors;
     errors.name=name.length > 3?"":"Name entered is less than 4 characters!"
-    this.setState({errors});
+    this.setState({errors, name})
   };
   handleEmailChange = event => {
-    this.setState({ "email": event.target.value });
     const email =  event.target.value;
     //Assign validation errors
     let errors = this.state.errors;
-    errors.email=VALID_EMAIL_REGEX.test(email)? '' : 'Email is not valid!';
-    this.setState({errors});
+    errors.email=VALID_EMAIL_REGEX.test(email)? '' : 'Email is not valid!'
+    this.setState({errors, email})
   };
   handleSubmit = event => {
-    
     event.preventDefault();
     if(this.validationPassed(this.state.errors))
     {
-      this.setState({ amount:"" });
-      this.setState({ email:"" });
-      this.setState({ name:"" });
-
-      insertFbGift(this.state, this.props.accounts[0].balance);
+      insertFbGift(this.state, this.props.accounts[0].balance)
+      const {name, email, amount}=this.state;
+      this.props.updatepage({name, email, amount})
+      this.setState({ amount:"",email:"",name:"" })
     }
-    
   };
   render() {
     return (
@@ -74,7 +64,6 @@ export class Form extends Component {
             <input
               required
               type="text"
-              id="name"
               placeholder="Name..."
               value={this.state.name}
               onChange={this.handleNameChange}
@@ -85,7 +74,6 @@ export class Form extends Component {
             <input
               required
               type="text"
-              id="email"
               placeholder="Email..."
               value={this.state ? this.state.email : ""}
               onChange={this.handleEmailChange}
@@ -96,7 +84,6 @@ export class Form extends Component {
             <input
             required
               type="number"
-              id="amount"
               placeholder="Amount..."
               value={this.state.amount}
               onChange={this.handleAmountChange}
@@ -106,7 +93,6 @@ export class Form extends Component {
               this.validationPassed(this.state.errors)?<button type="submit" className="sendBtn">Send
               </button>:<div id='message' className='smallMessages'>Please enter indicated missing values</div>
             }
-        
         </form>
       </div>
     );

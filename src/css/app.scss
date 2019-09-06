@@ -93,6 +93,29 @@ ul.choicebuttons li a.active{ background-color:black;  color: white; }
 ul.choicebuttons li a.dormant{ background-color:white; color: black; }
 ul.choicebuttons li a:hover:not(.active) {background-color: #ddd;}
 
+//Pagination menu
+ul.pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  cursor:pointer;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+  
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+ul.pagination li a.active{ background-color:black;  color: white; }
+ul.pagination li a.dormant{ background-color:white; color: black; }
+ul.pagination li a.normal{ border-style: solid;border-width: thin;}
+
+
+ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 
 /////////////////
 //Miscellaneous//
